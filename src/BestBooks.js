@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import axios from 'axios';
 
-function BestBooks() {
+export default function BestBooks() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -12,9 +12,9 @@ function BestBooks() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('mongodb://localhost:27017/books')
-      const bookData = await response.json();
-      setBooks(bookData);
+      const response = await axios.get('http://localhost:3001/books')
+      console.log(response.data)
+      setBooks(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -24,22 +24,20 @@ function BestBooks() {
   return (
     <>
       <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-
+  
       {books.length > 0 ? (
-        books.map((book) => {
-          <Carousel>
-            <Carousel.Item>
+        <Carousel>
+        {books.map((book) => (
+            <Carousel.Item key={book.id}>
               <p>{book.title}</p>
               <p>{book.description}</p>
             </Carousel.Item>
-          </Carousel>
-        })
+        ))}
+        </Carousel>
       ) : (
         <h3>No Books Found :(</h3>
       )}
     </>
   )
-
-}
-
-export default BestBooks;
+      }
+  

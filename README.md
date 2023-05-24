@@ -16,24 +16,29 @@ Clone this repo to your own account with the green "Use this template" button. T
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+This application is built with React. It leverages hooks (useState, useEffect) for state management and side effects handling, as well as third-party libraries like axios for making HTTP requests and react-bootstrap for pre-styled components.
+
+The purpose of building such an application can go beyond a class assignment. It's a great way to practice modern React development, as well as application design and development more broadly. This could also be a useful addition to a portfolio for a budding web developer.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+-Install Node.js and npm
+-Install Create React App
+-Install Required Libraries
+- Navigate to this link to start creating your project: https://trello.com/home
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+In terms of structure, this application is simple. It consists of a single component that fetches and displays a list of books. The data fetching occurs in the fetchBooks function, which is invoked when the component mounts (via the useEffect hook). The books data is then stored in the component's state (via the useState hook), and rendered in a carousel format.
+
+It's important to note that this component expects a backend server running at 'http://localhost:3001/books' that provides the required books data. If the backend server isn't available, the application won't be able to fetch or display any books.
+
+Finally, error handling is included in the data fetching function to catch and log any errors that occur during the data fetching process.
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 ## Estimates
-<!-- See below -->
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+https://trello.com/home
 
 Name of feature: I'd like to view the list of books, so that whenever I visit the page, I can see the a full list of best books.
 
@@ -43,4 +48,4 @@ Start time: 7pm
 
 Finish time: 9pm
 
-Actual time needed to complete: 2hours
+Actual time needed to complete: 3hours
