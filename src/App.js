@@ -4,6 +4,7 @@ import Footer from './Footer';
 import BestBooks from './BestBooks';
 import About from './About';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,6 +15,8 @@ function App(){
  
     return (
       <>
+      <div>
+
         <Router>
           <Header />
           <Routes>
@@ -30,6 +33,7 @@ function App(){
           </Routes>
           <Footer />
         </Router>
+      </div>
       </>
     )
   
