@@ -1,31 +1,45 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { Carousel } from 'react-bootstrap';
+import axios from 'axios';
 
-class BestBooks extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: []
+function BestBooks() {
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetchBooks();
+  }, [])
+
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get('mongodb://localhost:27017/books')
+      const bookData = await response.json();
+      setBooks(bookData);
+    } catch (error) {
+      console.log(error);
     }
-  }
 
-  /* TODO: Make a GET request to your API to fetch all the books from the database  */
+  };
 
-  render() {
+  return (
+    <>
+      <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
 
-    /* TODO: render all the books in a Carousel */
+      {books.length > 0 ? (
+        books.map((book) => {
+          <Carousel>
+            <Carousel.Item>
+              <p>{book.title}</p>
+              <p>{book.description}</p>
+            </Carousel.Item>
+          </Carousel>
+        })
+      ) : (
+        <h3>No Books Found :(</h3>
+      )}
+    </>
+  )
 
-    return (
-      <>
-        <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-
-        {this.state.books.length ? (
-          <p>Book Carousel coming soon</p>
-        ) : (
-          <h3>No Books Found :(</h3>
-        )}
-      </>
-    )
-  }
 }
 
 export default BestBooks;

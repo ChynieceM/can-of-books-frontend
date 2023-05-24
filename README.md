@@ -12,7 +12,7 @@ Clone this repo to your own account with the green "Use this template" button. T
 
 # Project Name
 
-**Author**: Team Member Names Goes Here
+**Author**: Chyniece Matthews
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
@@ -35,12 +35,12 @@ Clone this repo to your own account with the green "Use this template" button. T
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-Name of feature: ________________________________
+Name of feature: I'd like to view the list of books, so that whenever I visit the page, I can see the a full list of best books.
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2
 
-Start time: _____
+Start time: 7pm
 
-Finish time: _____
+Finish time: 9pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 2hours

@@ -1,11 +1,9 @@
-import { Component } from "react";
+import React from 'react';
 
-class Profile extends Component {
+function Profile() {
+  /* TODO: Define the information about the developers */
 
-  render() {
-    /* TODO: render information about the developers */
-    return <p>Profile page coming soon</p>
-  }
-};
+  return <p>This application was developed by Chyniece Matthews and Kelsee Watts.</p>;
+}
 
 export default Profile;
