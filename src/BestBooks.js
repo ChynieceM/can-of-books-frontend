@@ -1,11 +1,13 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
 import axios from 'axios';
+import BookFormModal from './BookFormModal';
+
 
 export default function BestBooks() {
   const [books, setBooks] = useState([]);
-
+  
   useEffect(() => {
     fetchBooks();
   }, [])
@@ -21,23 +23,33 @@ export default function BestBooks() {
 
   };
 
+  let handleBookSubmit = async (book) => {
+    try {
+      await axios.post('http://localhost:3001/books', book)
+      fetchBooks();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <h2>My Essential Lifelong Learning &amp; Formation Shelf</h2>
-  
+
       {books.length > 0 ? (
         <Carousel>
-        {books.map((book) => (
+          {books.map((book) => (
             <Carousel.Item key={book.id}>
               <p>{book.title}</p>
               <p>{book.description}</p>
             </Carousel.Item>
-        ))}
+          ))}
         </Carousel>
       ) : (
         <h3>No Books Found :(</h3>
       )}
+      <BookFormModal onBookSubmit={handleBookSubmit}/>
     </>
   )
-      }
-  
+}
+
