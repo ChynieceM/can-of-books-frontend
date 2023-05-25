@@ -49,3 +49,14 @@ Start time: 7pm
 Finish time: 9pm
 
 Actual time needed to complete: 3hours
+
+
+Name of feature: As a user, I'd like to add a new book to the shelf, so that I can update the list with my own recommendations.
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 1:02
+
+Finish time: 5:18
+
+Actual time needed to complete: 3 hours

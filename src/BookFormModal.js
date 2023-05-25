@@ -3,25 +3,30 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 
 export default function BookFormModal({ onBookSubmit }) {
-    const [show, setShow] = useState(false);
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [status, setStatus] = useState('Pending');
+    
+    const [show, setShow] = useState(false); // For toggling the Modal
+    const [title, setTitle] = useState(''); //To hold the title of the book
+    const [description, setDescription] = useState(''); // To hold the description of the book
+    const [status, setStatus] = useState('Pending'); // To hold the status of the book
 
+    // Functions to handle the closing/opening of the Modal
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // Function to handle the book submission
     const handleBookSubmit = async (event) => {
-        event.preventDefault();
+        event.preventDefault(); //Prevent the default form submission
         const book = { title, description, status };
 
         try {
+            // The new book is sent to the server w/ a POST request, and the response from the server
             const response = await axios.post('http://localhost:3001/books', book);
+            // Invoke the onBookSubmit function with the response data, passed up as props
             onBookSubmit(response.data);
-            setTitle('');
-            setDescription('');
-            setStatus('Pending');
-            handleClose();
+            setTitle(''); //// Reset the title state
+            setDescription(''); // Reset the description state
+            setStatus('Pending'); //// Reset the status state
+            handleClose(); // Close the Modal
         } catch (error) {
             console.log(error);
         }
