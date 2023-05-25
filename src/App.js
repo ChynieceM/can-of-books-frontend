@@ -3,7 +3,6 @@ import Header from './Header';
 import Footer from './Footer';
 import BestBooks from './BestBooks';
 import About from './About';
-import BookFormModal from './BookFormModal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {
