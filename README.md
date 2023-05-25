@@ -60,3 +60,14 @@ Start time: 1:02
 Finish time: 5:18
 
 Actual time needed to complete: 3 hours
+
+
+Name of feature:  As a user, I want to remove books from my list, so that only the most important books are on my shelf.
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 1:02
+
+Finish time: 3:30, 12:06
+
+Actual time needed to complete: 4 hours
