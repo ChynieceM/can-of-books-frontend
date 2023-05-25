@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
 
-export default function BookFormModal({ BookSubmit }) {
+export default function BookFormModal({ bookSubmit }) {
     
     const [show, setShow] = useState(false); // For toggling the Modal
     const [title, setTitle] = useState(''); //To hold the title of the book
@@ -22,7 +22,7 @@ export default function BookFormModal({ BookSubmit }) {
             // The new book is sent to the server w/ a POST request, and the response from the server
             const response = await axios.post('http://localhost:3001/books', book);
             // Invoke the onBookSubmit function with the response data, passed up as props
-            BookSubmit(response.data);
+            bookSubmit(response.data);
             setTitle(''); //// Reset the title state
             setDescription(''); // Reset the description state
             setStatus('Pending'); //// Reset the status state
