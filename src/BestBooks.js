@@ -84,7 +84,7 @@ export default function BestBooks() {
                   <h1>{book.title}</h1>
                   <p>{book.description}</p>
                   <Button style={{marginRight:'10px'}}variant="danger" onClick={() => handleBookDelete(book._id)}>Delete</Button>
-                  <EditBookModal book={book} onBookUpdate={handleBookUpdate} />
+                  <EditBookModal book={book} bookUpdate={handleBookUpdate} />
                   {/* <Button variant="secondary" onClick={() =>handleBookEdit(book._id)}>Edit</Button> */}
                 </Carousel.Caption>
               </Carousel.Item>
@@ -94,7 +94,7 @@ export default function BestBooks() {
           <h3>No Books Found :(</h3>
         )}
       </div>
-      <BookFormModal onBookSubmit={handleBookSubmit} style={{}} />
+      <BookFormModal bookSubmit={handleBookSubmit} style={{}} />
 
     </>
   )
