@@ -71,3 +71,13 @@ Start time: 1:02
 Finish time: 3:30, 12:06
 
 Actual time needed to complete: 4 hours
+
+Name of feature:  As a user, I want to update book details on my list, so that I can change the book status, or update the book details as I learn more about it.
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 1:02
+
+Finish time: 3:02, 
+
+Actual time needed to complete: 2 hours
