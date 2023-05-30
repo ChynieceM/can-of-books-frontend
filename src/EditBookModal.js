@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 //book prop -- book obj to be updated, nookUpdate --function called when the book is to be updated
-export default function EditBookModal({ book, bookUpdate }) {
+export default function EditBookModal({ book, onBookUpdate }) {
     //The initial states for title, description, 
     //and status are set to the properties of the book prop.
     const [show, setShow] = useState(false); // For toggling the Modal
@@ -21,7 +21,7 @@ export default function EditBookModal({ book, bookUpdate }) {
         // creates a new book object with the updated title, description, and status
         const updatedBook = { title, description, status };
         // calls the bookUpdate function, passing it the new book object and the id of the book we want to update.
-        bookUpdate(updatedBook, book._id);
+        onBookUpdate(updatedBook, book._id);
         //calls handleClose to close the modal.
         handleClose();
     }
