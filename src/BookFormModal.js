@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import axios from 'axios';
+import { useAuth0 } from '@auth0/auth0-react';
 
-export default function BookFormModal({ bookSubmit }) {
+
+
+export default function BookFormModal({ onBookSubmit, bookId, ...props }) {
+
     
     const [show, setShow] = useState(false); // For toggling the Modal
     const [title, setTitle] = useState(''); //To hold the title of the book
     const [description, setDescription] = useState(''); // To hold the description of the book
     const [status, setStatus] = useState('Pending'); // To hold the status of the book
-
+    const { getAccessTokenSilently } = useAuth0();
     // Functions to handle the closing/opening of the Modal
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -16,13 +20,20 @@ export default function BookFormModal({ bookSubmit }) {
     // Function to handle the book submission
     const handleBookSubmit = async (event) => {
         event.preventDefault(); //Prevent the default form submission
-        const book = { title, description, status };
+        const addedBook = { title, description, status };
 
         try {
+            const token = await getAccessTokenSilently();
             // The new book is sent to the server w/ a POST request, and the response from the server
-            const response = await axios.post('http://localhost:3001/books', book);
+            const response = await axios.post('http://localhost:3001/books/', addedBook, {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+            });
             // Invoke the onBookSubmit function with the response data, passed up as props
-            bookSubmit(response.data);
+
+            onBookSubmit(response.data);
+
             setTitle(''); //// Reset the title state
             setDescription(''); // Reset the description state
             setStatus('Pending'); //// Reset the status state
