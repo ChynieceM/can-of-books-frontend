@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 //book prop -- book obj to be updated, nookUpdate --function called when the book is to be updated
@@ -25,7 +25,11 @@ export default function EditBookModal({ book, onBookUpdate }) {
         //calls handleClose to close the modal.
         handleClose();
     }
-
+    useEffect(() => {
+        setTitle(book.title);
+        setDescription(book.description);
+        setStatus(book.status);
+    }, [book]);
     return (
         <>
             <Button variant="secondary" onClick={handleShow}>
@@ -37,7 +41,7 @@ export default function EditBookModal({ book, onBookUpdate }) {
                     <Modal.Title>Edit A Book!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                {/* onSubmit is set to handleBookUpdate, so when the user submits the form, the handleBookUpdate function is called. */}
+                    {/* onSubmit is set to handleBookUpdate, so when the user submits the form, the handleBookUpdate function is called. */}
                     <Form onSubmit={handleBookUpdate}>
                         <Form.Group className="mb-3">
                             <Form.Label>Title:</Form.Label>
