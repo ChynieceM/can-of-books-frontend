@@ -4,7 +4,9 @@ import axios from 'axios';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
+
 export default function BookFormModal({ onBookSubmit, bookId, ...props }) {
+
     
     const [show, setShow] = useState(false); // For toggling the Modal
     const [title, setTitle] = useState(''); //To hold the title of the book
@@ -32,7 +34,9 @@ export default function BookFormModal({ onBookSubmit, bookId, ...props }) {
                 },
             });
             // Invoke the onBookSubmit function with the response data, passed up as props
+
             onBookSubmit(response.data);
+
             setTitle(''); //// Reset the title state
             setDescription(''); // Reset the description state
             setStatus('Pending'); //// Reset the status state
