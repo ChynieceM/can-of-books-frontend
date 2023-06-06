@@ -21,11 +21,14 @@ export default function BookFormModal({ onBookSubmit, bookId, ...props }) {
         const addedBook = { title, description, status };
 
         try {
-            const token = await getAccessTokenSilently();
+            const token = await getAccessTokenSilently({
+                audience: 'https://canofbooks/api',
+                scope: 'openid profile email'
+              });
             // The new book is sent to the server w/ a POST request, and the response from the server
             const response = await axios.post('http://localhost:3001/books/', addedBook, {
                 headers: {
-                  Authorization: `Bearer ${token}`,
+                  authorization: `Bearer ${token}`,
                 },
             });
             // Invoke the onBookSubmit function with the response data, passed up as props

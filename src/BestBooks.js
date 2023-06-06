@@ -19,7 +19,10 @@ export default function BestBooks() {
   const fetchBooks = async () => {
 
     try {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        audience: 'https://canofbooks/api',
+        scope: 'openid profile email'
+      });
       console.log(token);
       // Make a GET request to the /books endpoint
       const response = await axios.get('http://localhost:3001/books', {
@@ -40,7 +43,11 @@ export default function BestBooks() {
   // Function to handle book submission
   let handleBookSubmit = async (book) => {
     try {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        audience: 'https://canofbooks/api',
+        scope: 'openid profile email'
+      });
+      
       // Make a POST request to the /books endpoint
       const response = await axios.post('http://localhost:3001/books', book, {
         headers: {
@@ -60,7 +67,10 @@ export default function BestBooks() {
 
   const handleBookDelete = async (bookId) => {
     try {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        audience: 'https://canofbooks/api',
+        scope: 'openid profile email'
+      });
       // Making the DELETE request to the server
        await axios.delete(`http://localhost:3001/books/${bookId}`, {
         headers: {
@@ -77,7 +87,10 @@ export default function BestBooks() {
   };
   const handleBookUpdate = async (updatedBook, bookId) => {
     try {
-      const token = await getAccessTokenSilently();
+      const token = await getAccessTokenSilently({
+        audience: 'https://canofbooks/api',
+        scope: 'openid profile email'
+      });
       const response = await axios.put(`http://localhost:3001/books/${bookId}`, updatedBook, {
         headers: {
           authorization: `Bearer ${token}`,
