@@ -28,7 +28,7 @@ export default function BookFormModal({ onBookSubmit, bookId, ...props }) {
                 scope: 'openid profile email'
               });
             // The new book is sent to the server w/ a POST request, and the response from the server
-            const response = await axios.post('http://localhost:3001/books/', addedBook, {
+            const response = await axios.post('https://can-of-books-backend-74ql.onrender.com/books', addedBook, {
                 headers: {
                   authorization: `Bearer ${token}`,
                 },
